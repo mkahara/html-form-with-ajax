@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit HTML form data using AJAX</title>
+
+    <!-- Import jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Page styles -->
+    <style>
+        #postDetails, #updatedPost {
+            display: none;
+        }
+    </style>
+
+    <script src="index.js"></script>
+</head>
+<body>
+<h2>Update Post Details</h2>
+<!-- Fetch the post as per the entered ID
+    The ID is limited to 1 and 100 as per the JSONPlaceholder API -->
+<form id="postIdForm">
+    <label for="postId">Enter Post ID:</label>
+    <input type="number" id="postId" name="postId" min="1" max="100" required>
+    <button type="submit">Fetch Post</button>
+</form>
+
+<!-- Display the returned post details -->
+<div id="postDetails">
+    <h3>Post Details</h3>
+    <form id="updateForm">
+        <input type="hidden" id="postIdUpdate" name="postIdUpdate">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        <br>
+        <label for="body">Body:</label>
+        <textarea id="body" name="body"></textarea>
+        <br>
+        <div id="customFields">
+            <!-- Custom fields will be added here -->
+        </div>
+        <button type="button" id="addFieldButton">Add Custom Field</button>
+        <br>
+        <button type="submit">Update Post</button>
+    </form>
+</div>
+
+<!-- Upon update, display the updated post details -->
+<div id="updatedPost">
+    <h3>Updated Post</h3>
+    <p><b>Title:</b> <span id="updatedTitle"></span></p>
+    <p><b>Body:</b> <span id="updatedBody"></span></p>
+    <div id="updatedCustomFields"></div>
+</div>
+
+<div id="response"></div>
+
+</body>
+</html>
